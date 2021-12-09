@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+  <html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="dist/vue-audio-mixer.min.css">
+      <ttie>GWBC worshop team practice - 20211207</ttie>
+  </head>
+  <body>
+    <h1>20211207 Practice</h1>
+    <p>這是耶和華所定日子 / 滿有能力 / 是祢最重要 / 全然歸祢 / 主的喜樂是我力量</p>
+
+  <div id="app">
+    <div>
+      <div style="text-align: center;">
+        <div style="position:relative; display: inline-block; ">
+          <vue-audio-mixer 
+              :config="config" 
+              size="medium" 
+              theme="dark" 
+              :show-pan="true"
+              :show-total-time="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="dist/vue-audio-mixer.min.js"></script>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data : function(){     
+        return {
+          is_loaded:false,
+          newconfig:{},
+          config:
+{
+  "tracks": [
+    {
+      "title": "Bass",
+      "url": "audio/bass.mp3",
+      "pan": 0,
+      "gain": 1,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Guitar",
+      "url": "guitar.mp3",
+      "pan": 0,
+      "gain": 1.08,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Drum",
+      "url": "drum.mp3",
+      "pan": 0,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Piano",
+      "url": "piano.mp3",
+      "pan": 0,
+      "gain": 0.6,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Syth",
+      "url": "syth.mp3",
+      "pan": 0,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Alice",
+      "url": "alice.mp3",
+      "pan": 20,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Grace",
+      "url": "grace.mp3",
+      "pan": 8,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Lydia",
+      "url": "lydia.mp3",
+      "pan": -20,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Tiger",
+      "url": "tiger.mp3",
+      "pan": -20,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    }
+  ],
+  "master": {
+    "pan": 0,
+    "gain": 1,
+    "muted": false
+  }
+}
+
+            
+          }  
+        }
+      })
+    </script> 
+
+  </body>
+</html>

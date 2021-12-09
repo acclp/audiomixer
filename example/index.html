@@ -1,11 +1,107 @@
+Fork me on GitHub
+Online Audio Mixer
+An audio mixer component for Vue.js from Realstrings.com. Use this mixer on your website, click here to get started.
+
+Play, edit, record and save your mixes, all within the browser. It's simple to integrate into any website, only very basic HTML knowledge required (it's mainly copy and paste).
+
+Use your own audio tracks in the mixer, by adding your own mp3 tracks in the 'url' part of the config, object. For the easiest set up you should host these mp3 files on the same domain as the mixer (if the mixer is on https://example.com, your mp3 tracks should also be hosted on https://example.com). You can host your mp3 tracks on a different service (eg Google cloud or Amazon s3), but if you do you will need to enable CORS for the mixer to be able to use them.
+
+This software is donationware. If you decide to use this mixer on your website for personal or commercial reasons, please consider making a donation on the following link to The Samaritans.
+
+For custom implementations and new features, please contact julian@juliancole.co.uk
+
+Example mixer
+The below is example code of how to create the above mixer on your website.
+
+
 <!DOCTYPE html>
-<html>
+  <html>
   <head>
-    <meta charset="utf-8">
-    <title>Vue.js Audio Mixer</title>
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-audio-mixer/dist/vue-audio-mixer.min.css">
   </head>
   <body>
-    <div id="app"></div>
-    <script src="./demo.js"></script>
+
+  <div id="app">
+    <div>
+      <div style="text-align: center;">
+        <div style="position:relative; display: inline-block; ">
+          <vue-audio-mixer 
+              :config="config" 
+              size="medium" 
+              theme="dark" 
+              :show-pan="true"
+              :show-total-time="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-audio-mixer/dist/vue-audio-mixer.min.js"></script>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data : function(){     
+        return {
+          is_loaded:false,
+          newconfig:{},
+          config:
+{
+  "tracks": [
+    {
+      "title": "Bass",
+      "url": "https://audiomixer.io/stems/bass.mp3",
+      "pan": -30,
+      "gain": 0.5,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Flutes",
+      "url": "https://audiomixer.io/stems/flutes.mp3",
+      "pan": 81,
+      "gain": 1.08,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Perc",
+      "url": "https://audiomixer.io/stems/perc.mp3",
+      "pan": -49,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Piano",
+      "url": "https://audiomixer.io/stems/piano.mp3",
+      "pan": -60,
+      "gain": 0.6,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Strings",
+      "url": "https://audiomixer.io/stems/strings.mp3",
+      "pan": -49,
+      "gain": 0.85,
+      "muted": false,
+      "hidden": false
+    }
+  ],
+  "master": {
+    "pan": 0,
+    "gain": 1,
+    "muted": false
+  }
+}
+
+            
+          }  
+        }
+      })
+    </script> 
+
   </body>
 </html>
